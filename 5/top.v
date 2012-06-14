@@ -43,7 +43,7 @@ reg [1:0] state;
 
 parameter st0=2'b00, st1=2'b01, st2=2'b10, st3=2'b11;
 
-always @ (posedge clk or posedge res)
+always @ (posedge clk or negedge res)
 begin
 	if(~res)
 		state <= st0;
