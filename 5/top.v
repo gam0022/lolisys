@@ -49,8 +49,16 @@ begin
 		state <= st0;
 	else begin
 		case(state)
-			st0: if(s==1) state <= st1;
-			st1: if(s==1 || s==2) state <= st2; 
+			st0:
+			begin
+				if(s==1) state <= st1;
+				if(s==2 || s==3) state <= st2;
+			end
+			st1:
+			begin
+				if(s==1 || s==2) state <= st2; 
+				if(s==3) state <= st3;
+			end
 			st2: if(s) state <= st3;
 			st3: state <= st0;
 		endcase
